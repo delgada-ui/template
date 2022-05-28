@@ -13,7 +13,7 @@
   },
   "devDependencies": {
     "@web/dev-server": "^0.1.31",
-    "delgada": "^0.2.0",
+    "delgada": "^0.3.0",
     "prettier": "^2.6.2"
   }
 }

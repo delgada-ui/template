@@ -25,10 +25,12 @@ export const styles = css`
     margin: 0 0.5rem;
   }
 
-  nav > a:hover {
+  nav > a:hover,
+  nav > a:focus {
     text-decoration: underline;
     text-decoration-thickness: 2px;
     text-underline-offset: 2px;
+    outline: none;
   }
 `;
 

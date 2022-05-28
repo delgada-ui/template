@@ -7,7 +7,8 @@ export const styles = css`
     text-align: center;
   }
 
-  h1 > a:hover {
+  h1 > a:hover,
+  h1 > a:focus {
     text-decoration-thickness: 6px;
     text-underline-offset: 2px;
   }

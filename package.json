@@ -5,7 +5,7 @@
   "license": "MIT",
   "type": "module",
   "scripts": {
-    "start": "wds",
+    "start": "npm run build && wds",
     "build": "delgada build"
   },
   "dependencies": {

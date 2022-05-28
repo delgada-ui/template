@@ -1,0 +1,28 @@
+body {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 400;
+  font-size: 1.2rem;
+  color: rgb(30, 30, 33);
+  background-color: rgb(207, 222, 216);
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+@media (max-width: 767px) {
+  body {
+    font-size: 1rem;
+  }
+}
+
+a {
+  color: rgb(67, 42, 230);
+  text-decoration: none;
+}
+
+a:hover {
+  cursor: pointer;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 2px;
+}

@@ -1,21 +1,19 @@
-import { html } from 'delgada/template.js';
+import { html, css } from 'delgada/template.js';
 import { Navbar, styles as NavbarStyles } from '../components/Navbar.js';
 
 export const styles = css`
-  .about-container {
-    width: 50%;
-    margin: 4rem 0 1rem 0;
+  #delgada-logo {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: 16px;
+    left: 16px;
   }
 
-  @media (max-width: 767px) {
-    .about-container {
-      width: 90%;
-      margin: 4rem 1rem 1rem 1rem;
-    }
-  }
+  ${NavbarStyles}
 `;
 
-export default function template(slot, metadata = {}) {
+export function template(slot, metadata = {}) {
   return html`
     <!DOCTYPE html>
     <html lang="en">
@@ -36,17 +34,6 @@ export default function template(slot, metadata = {}) {
           href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap"
           rel="stylesheet"
         />
-        <style>
-          #delgada-logo {
-            width: 40px;
-            height: 40px;
-            position: absolute;
-            top: 16px;
-            left: 16px;
-          }
-
-          ${NavbarStyles}
-        </style>
       </head>
       <body>
         ${Navbar()}

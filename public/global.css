@@ -15,6 +15,14 @@ body {
   }
 }
 
+main {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
 a {
   color: rgb(67, 42, 230);
   text-decoration: none;

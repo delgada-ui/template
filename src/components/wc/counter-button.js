@@ -17,9 +17,11 @@ export class CounterButton extends LitElement {
       margin: 1rem;
     }
 
-    button:hover {
+    button:hover,
+    button:focus {
       cursor: pointer;
       box-shadow: 2px 3px 0 0 #000;
+      outline: none;
     }
   `;
 

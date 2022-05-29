@@ -38,9 +38,9 @@ export function Navbar() {
   return html`
     <header>
       <nav>
-        <a id="home-link" href="/">Home</a>
-        <a id="about-link" href="/about">About</a>
-        <a id="about-link" href="/todos">Todos</a>
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+        <a href="/todos">Todos</a>
       </nav>
     </header>
   `;

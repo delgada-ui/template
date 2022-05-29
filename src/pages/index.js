@@ -6,14 +6,18 @@ export const metadata = {
 };
 
 export const styles = css`
+  body {
+    background-color: #98b5ff;
+  }
+
   p {
     text-align: center;
   }
 
   code {
     font-family: monospace;
-    color: rgb(13, 82, 40);
-    background-color: rgb(186, 210, 197);
+    color: #0d1552;
+    background-color: #b5c2f5;
     padding: 0.25rem;
     border-radius: 4px;
   }

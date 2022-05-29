@@ -7,52 +7,50 @@ export default {
   port: 3000,
   middleware: [
     function rewriteIndex(context, next) {
-      rewritePageUrls(context, 'build', '');
-      handleWebComponentDirectory(context);
+      const buildPath = 'build';
+      const webComponentDir = 'wc';
+      const basePath = '';
+
+      const endpoints = new Map();
+      generateEndpointMappings(endpoints, buildPath, webComponentDir, basePath);
+
+      if (context.url === '/') {
+        context.url = `/${buildPath}/index.html`;
+      }
+      if (endpoints.has(context.url)) {
+        context.url = endpoints.get(context.url);
+      }
 
       return next();
     },
   ],
 };
 
-function rewritePageUrls(context, buildPath, basePath) {
+function generateEndpointMappings(endpoints, buildPath, wcDir, basePath) {
   const files = fs.readdirSync(buildPath);
   for (const file of files) {
     if (
       file !== 'public' &&
-      file !== 'wc' &&
       fs.lstatSync(`${buildPath}/${file}`).isDirectory()
     ) {
-      rewritePageUrls(
-        context,
+      generateEndpointMappings(
+        endpoints,
         `${buildPath}/${file}`,
-        `${basePath ? basePath + '/' : ''}${file}`
+        wcDir,
+        `${basePath}/${file}`
       );
     } else {
       if (file.endsWith('.html')) {
-        const endpointUrl = file.replace('.html', '');
-        if (
-          context.url === `/${endpointUrl}` ||
-          context.url === `/${basePath}/${endpointUrl}` ||
-          context.url === '/'
-        ) {
-          if (context.url === '/') {
-            context.url = `/${buildPath}/index.html`;
-          } else {
-            context.url = `/${buildPath}/${endpointUrl}.html`;
-          }
-        }
+        const endpoint = `${basePath}/${file.replace('.html', '')}`;
+        endpoints.set(endpoint, `/${buildPath}/${file}`);
       }
-    }
-  }
-}
-
-function handleWebComponentDirectory(context) {
-  const wcFiles = fs.readdirSync('build/wc');
-  for (const file of wcFiles) {
-    if (file.endsWith('.js')) {
-      if (context.url === `/wc/${file}`) {
-        context.url = `/build/wc/${file}`;
+      if (file.endsWith('.css')) {
+        const endpoint = `${basePath}/${file}`;
+        endpoints.set(endpoint, `/${buildPath}/${file}`);
+      }
+      if (file.endsWith('.js')) {
+        const endpoint = `/${wcDir}/${file}`;
+        endpoints.set(endpoint, `/${buildPath}/${file}`);
       }
     }
   }

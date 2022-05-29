@@ -13,7 +13,7 @@ export const styles = css`
   ${NavbarStyles}
 `;
 
-export function template(slot, metadata = {}) {
+export function template(slot, metadata) {
   return html`
     <!DOCTYPE html>
     <html lang="en">

@@ -19,7 +19,7 @@ export class CounterButton extends LitElement {
 
     button:hover {
       cursor: pointer;
-      background-color: rgb(53, 32, 187);
+      box-shadow: 2px 3px 0 0 #000;
     }
   `;
 

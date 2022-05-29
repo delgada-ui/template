@@ -5,7 +5,7 @@
   "license": "MIT",
   "type": "module",
   "scripts": {
-    "start": "npm run build && wds",
+    "start": "wds",
     "build": "delgada build"
   },
   "dependencies": {
@@ -13,7 +13,7 @@
   },
   "devDependencies": {
     "@web/dev-server": "^0.1.31",
-    "delgada": "^0.3.0",
+    "delgada": "^0.4.0",
     "prettier": "^2.6.2"
   }
 }

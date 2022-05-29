@@ -8,6 +8,7 @@ A starter template for building websites using [Delgada](https://github.com/delg
 npx degit delgada-ui/template my-delgada-project
 cd my-delgada-project
 npm install
+npm run build
 npm start
 ```
 

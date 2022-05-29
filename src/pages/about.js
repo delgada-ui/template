@@ -5,6 +5,14 @@ export const metadata = {
 };
 
 export const styles = css`
+  body {
+    background-color: #8dcc96;
+  }
+
+  h1 {
+    font-size: 35px;
+  }
+
   .about-container {
     width: 50%;
     margin: 4rem 0 1rem 0;

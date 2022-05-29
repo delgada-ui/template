@@ -5,9 +5,13 @@ export const metadata = {
 };
 
 export const styles = css`
+  body {
+    background-color: #ff9559;
+  }
+
   .todo-container {
     width: 50%;
-    margin: 4rem 0 1rem 0;
+    margin: 6.5rem 0 1rem 0;
   }
 
   @media (max-width: 767px) {

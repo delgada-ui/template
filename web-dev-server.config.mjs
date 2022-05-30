@@ -1,39 +1,45 @@
 import fs from 'fs';
 
 export default {
-  open: false,
-  watch: true,
   nodeResolve: true,
   port: 3000,
-  middleware: [
-    function rewriteIndex(context, next) {
-      const buildPath = 'build';
-      const webComponentDir = 'wc';
-      const basePath = '';
-
-      const endpoints = new Map();
-      generateEndpointMappings(endpoints, buildPath, webComponentDir, basePath);
-
-      if (context.url === '/') {
-        context.url = `/${buildPath}/index.html`;
-      }
-      if (endpoints.has(context.url)) {
-        context.url = endpoints.get(context.url);
-      }
-
-      return next();
-    },
-  ],
+  plugins: [delgada()],
 };
 
-function generateEndpointMappings(endpoints, buildPath, wcDir, basePath) {
+export function delgada() {
+  return {
+    name: 'delgada',
+    async serverStart({ app }) {
+      const buildPath = 'build';
+      const endpoints = getEndpointMappings(buildPath, 'wc', '');
+
+      app.use((context, next) => {
+        if (context.url === '/') {
+          context.url = `/${buildPath}/index.html`;
+        }
+        if (endpoints.has(context.url)) {
+          context.url = endpoints.get(context.url);
+        }
+        return next();
+      });
+    },
+  };
+}
+
+function getEndpointMappings(buildPath, webComponentDir, basePath) {
+  const endpoints = new Map();
+  getEndpointMappingsHelper(endpoints, buildPath, webComponentDir, basePath);
+  return endpoints;
+}
+
+function getEndpointMappingsHelper(endpoints, buildPath, wcDir, basePath) {
   const files = fs.readdirSync(buildPath);
   for (const file of files) {
     if (
       file !== 'public' &&
       fs.lstatSync(`${buildPath}/${file}`).isDirectory()
     ) {
-      generateEndpointMappings(
+      getEndpointMappingsHelper(
         endpoints,
         `${buildPath}/${file}`,
         wcDir,

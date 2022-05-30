@@ -6,7 +6,7 @@ export default {
   plugins: [delgada()],
 };
 
-export function delgada() {
+function delgada() {
   return {
     name: 'delgada',
     async serverStart({ app }) {

@@ -28,7 +28,7 @@ export const styles = css`
 
 const features = [
   'File-system based routing',
-  'Ludicrously lightweight – currently 1.2kB (minified and compressed) 🤯',
+  'Lightweight – currently 1.3kB (minified and compressed)',
   'Web components as a first class citizen',
   'Static markup components and styling using template literal strings',
   'Flexible page templates',

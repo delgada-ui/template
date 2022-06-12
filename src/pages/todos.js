@@ -1,4 +1,4 @@
-import { html, css } from 'delgada/template.js';
+import { html, css } from 'delgada';
 
 export const metadata = {
   title: 'Todos',

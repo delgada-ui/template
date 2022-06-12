@@ -1,4 +1,4 @@
-import { html, css } from 'delgada/template.js';
+import { html, css } from 'delgada';
 import { Navbar, styles as NavbarStyles } from '../components/Navbar.js';
 
 export const styles = css`
@@ -27,12 +27,8 @@ export function template(slot, metadata) {
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-        <link
-          rel="shortcut icon"
-          href="public/favicon.png"
-          type="image/x-icon"
-        />
-        <link rel="stylesheet" href="public/global.css" />
+        <link rel="shortcut icon" href="/favicon.png" type="image/x-icon" />
+        <link rel="stylesheet" href="/global.css" />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link
           href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap"
@@ -41,7 +37,7 @@ export function template(slot, metadata) {
       </head>
       <body>
         ${Navbar()}
-        <img id="delgada-logo" src="public/logo.svg" alt="Delgada logo" />
+        <img id="delgada-logo" src="/logo.svg" alt="Delgada logo" />
         <main>${slot}</main>
       </body>
     </html>

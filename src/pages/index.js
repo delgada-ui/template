@@ -1,4 +1,4 @@
-import { html, css } from 'delgada/template.js';
+import { html, css } from 'delgada';
 import { Welcome, styles as WelcomeStyles } from '../components/Welcome.js';
 
 export const metadata = {

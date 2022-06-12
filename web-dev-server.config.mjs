@@ -11,7 +11,7 @@ function delgada() {
     name: 'delgada',
     async serverStart({ app }) {
       const buildPath = 'build';
-      const endpoints = getEndpointMappings(buildPath, 'wc', '');
+      const endpoints = getRouteMappings(buildPath, '');
 
       app.use((context, next) => {
         if (context.url === '/') {
@@ -26,36 +26,35 @@ function delgada() {
   };
 }
 
-function getEndpointMappings(buildPath, webComponentDir, basePath) {
+function getRouteMappings(buildPath, basePath) {
   const endpoints = new Map();
-  getEndpointMappingsHelper(endpoints, buildPath, webComponentDir, basePath);
+  getRouteMappingsHelper(endpoints, buildPath, basePath);
   return endpoints;
 }
 
-function getEndpointMappingsHelper(endpoints, buildPath, wcDir, basePath) {
+function getRouteMappingsHelper(endpoints, buildPath, basePath) {
   const files = fs.readdirSync(buildPath);
   for (const file of files) {
     if (
       file !== 'public' &&
       fs.lstatSync(`${buildPath}/${file}`).isDirectory()
     ) {
-      getEndpointMappingsHelper(
+      getRouteMappingsHelper(
         endpoints,
         `${buildPath}/${file}`,
-        wcDir,
         `${basePath}/${file}`
       );
     } else {
       if (file.endsWith('.html')) {
         const endpoint = `${basePath}/${file.replace('.html', '')}`;
         endpoints.set(endpoint, `/${buildPath}/${file}`);
-      }
-      if (file.endsWith('.css')) {
+      } else if (file.endsWith('.css')) {
         const endpoint = `${basePath}/${file}`;
         endpoints.set(endpoint, `/${buildPath}/${file}`);
-      }
-      if (file.endsWith('.js')) {
-        const endpoint = `/${wcDir}/${file}`;
+      } else {
+        // Any JavaScript or static asset files will be served from
+        // the root build path
+        const endpoint = `/${file}`;
         endpoints.set(endpoint, `/${buildPath}/${file}`);
       }
     }

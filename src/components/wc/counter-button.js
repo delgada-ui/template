@@ -14,7 +14,6 @@ export class CounterButton extends LitElement {
       color: white;
       background-color: rgb(67, 42, 230);
       padding: 0.75rem 1rem;
-      margin: 1rem;
     }
 
     button:hover,

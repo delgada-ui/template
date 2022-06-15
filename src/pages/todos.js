@@ -4,6 +4,14 @@ export const metadata = {
   title: 'Todos',
 };
 
+export function page() {
+  return html`
+    <section class="todo-container">
+      <todo-list></todo-list>
+    </section>
+  `;
+}
+
 export const styles = css`
   body {
     background-color: #ff9559;
@@ -21,11 +29,3 @@ export const styles = css`
     }
   }
 `;
-
-export function page() {
-  return html`
-    <section class="todo-container">
-      <todo-list></todo-list>
-    </section>
-  `;
-}

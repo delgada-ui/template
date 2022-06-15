@@ -1,5 +1,9 @@
 import { html, css } from 'delgada';
 
+export function Welcome({ name, link }) {
+  return html` <h1>Welcome to <a href="${link}">${name}</a>!</h1> `;
+}
+
 export const styles = css`
   h1 {
     font-size: 60px;
@@ -19,7 +23,3 @@ export const styles = css`
     }
   }
 `;
-
-export function Welcome({ name, link }) {
-  return html` <h1>Welcome to <a href="${link}">${name}</a>!</h1> `;
-}

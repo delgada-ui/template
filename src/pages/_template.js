@@ -1,18 +1,6 @@
 import { html, css } from 'delgada';
 import { Navbar, styles as NavbarStyles } from '../components/Navbar.js';
 
-export const styles = css`
-  #delgada-logo {
-    width: 40px;
-    height: 40px;
-    position: absolute;
-    top: 16px;
-    left: 16px;
-  }
-
-  ${NavbarStyles}
-`;
-
 export function template(slot, metadata) {
   return html`
     <!DOCTYPE html>
@@ -43,3 +31,15 @@ export function template(slot, metadata) {
     </html>
   `;
 }
+
+export const styles = css`
+  #delgada-logo {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: 16px;
+    left: 16px;
+  }
+
+  ${NavbarStyles}
+`;

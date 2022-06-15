@@ -1,5 +1,17 @@
 import { html, css } from 'delgada';
 
+export function Navbar() {
+  return html`
+    <header>
+      <nav>
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+        <a href="/todos">Todos</a>
+      </nav>
+    </header>
+  `;
+}
+
 export const styles = css`
   header {
     display: flex;
@@ -33,15 +45,3 @@ export const styles = css`
     outline: none;
   }
 `;
-
-export function Navbar() {
-  return html`
-    <header>
-      <nav>
-        <a href="/">Home</a>
-        <a href="/about">About</a>
-        <a href="/todos">Todos</a>
-      </nav>
-    </header>
-  `;
-}

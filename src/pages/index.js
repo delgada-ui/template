@@ -5,6 +5,18 @@ export const metadata = {
   title: 'Welcome to Delgada!',
 };
 
+export function page() {
+  return html`
+    ${Welcome({ name: 'Delgada', link: 'https://delgada.dev' })}
+    <p>Get started by editing <code>src/pages/index.js</code></p>
+    <counter-button></counter-button>
+    <p id="docs">
+      Read the docs at
+      <a href="https://delgada.dev/docs">delgada.dev/docs</a>.
+    </p>
+  `;
+}
+
 export const styles = css`
   body {
     background-color: #98b5ff;
@@ -22,6 +34,10 @@ export const styles = css`
     border-radius: 4px;
   }
 
+  counter-button {
+    margin: 1rem;
+  }
+
   #docs {
     position: fixed;
     bottom: 10px;
@@ -29,15 +45,3 @@ export const styles = css`
 
   ${WelcomeStyles}
 `;
-
-export function page() {
-  return html`
-    ${Welcome({ name: 'Delgada', link: 'https://delgada.dev' })}
-    <p>Get started by editing <code>src/pages/index.js</code></p>
-    <counter-button></counter-button>
-    <p id="docs">
-      Read the docs at
-      <a href="https://delgada.dev/docs">delgada.dev/docs</a>.
-    </p>
-  `;
-}

@@ -4,35 +4,13 @@ export const metadata = {
   title: 'About',
 };
 
-export const styles = css`
-  body {
-    background-color: #8dcc96;
-  }
-
-  h1 {
-    font-size: 35px;
-  }
-
-  .about-container {
-    width: 50%;
-    margin: 4rem 0 1rem 0;
-  }
-
-  @media (max-width: 767px) {
-    .about-container {
-      width: 90%;
-      margin: 4rem 1rem 1rem 1rem;
-    }
-  }
-`;
-
 const features = [
   'File-system based routing',
-  'Lightweight – currently 1.3kB (minified and compressed)',
+  'Create pages using JavaScript or Markdown',
   'Web components as a first class citizen',
-  'Static markup components and styling using template literal strings',
+  'Single file static components',
   'Flexible page templates',
-  'SEO friendly final output',
+  'SEO friendly final build',
 ];
 
 export function page() {
@@ -55,3 +33,25 @@ export function page() {
     </section>
   `;
 }
+
+export const styles = css`
+  body {
+    background-color: #8dcc96;
+  }
+
+  h1 {
+    font-size: 35px;
+  }
+
+  .about-container {
+    width: 50%;
+    margin: 4rem 0 1rem 0;
+  }
+
+  @media (max-width: 767px) {
+    .about-container {
+      width: 90%;
+      margin: 4rem 1rem 1rem 1rem;
+    }
+  }
+`;

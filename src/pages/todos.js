@@ -7,6 +7,7 @@ export const metadata = {
 export function page() {
   return html`
     <section class="todo-container">
+      <h1>Todos</h1>
       <todo-list></todo-list>
     </section>
   `;
@@ -17,9 +18,13 @@ export const styles = css`
     background-color: #ff9559;
   }
 
+  h1 {
+    font-size: 35px;
+  }
+
   .todo-container {
     width: 50%;
-    margin: 6.5rem 0 1rem 0;
+    margin: 4rem 0 1rem 0;
   }
 
   @media (max-width: 767px) {

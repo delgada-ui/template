@@ -20,8 +20,8 @@ export function page() {
       <h1>About</h1>
       <p>
         This is a <a href="https://delgada.dev">Delgada</a> website. Delgada is
-        a frontend web framework for building slim multipage websites using
-        modern web standards and conventions.
+        a web framework for building slim multipage websites using modern web 
+        standards and conventions.
       </p>
       <p>Features include:</p>
       <ul>

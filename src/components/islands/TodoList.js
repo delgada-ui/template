@@ -136,11 +136,13 @@ export class ToDoList extends LitElement {
   }
 
   addTodo() {
-    this._listItems = [
-      ...this._listItems,
-      { text: this.input.value, completed: false },
-    ];
-    this.input.value = '';
+    if (this.input.value.length > 0) {
+      this._listItems = [
+        ...this._listItems,
+        { text: this.input.value, completed: false },
+      ];
+      this.input.value = '';
+    }
   }
 
   _addTodoOnKeydown(e) {
